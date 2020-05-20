@@ -1,17 +1,16 @@
 #################################################
 # AfterBoot.sh > ab.sh
 # maintainer yamanouchi katsura <katsura@uhl.jp>
-# 2020/05/19(Sun) 23:39:58 JST
+# 2020/05/20(Wed) 13:39:58 JST
 # all right reserved 2020 (c) uhlfx.trade
 #################################################
 
-### update system ###
 ### variables change to your data...
 username="hoge"
 hostname="hage"
 homeip="foo"
 officeip="bar"
-#####################################
+#-----------------------------------
 
 dnf -y update && dnf clean all
 

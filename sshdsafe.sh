@@ -1,19 +1,20 @@
-#######################################
+#################################################
 # sshdsafe.sh
 # maintainer yamanouchi katsura <katsura@uhl.jp>
-# 2020/05/17(Sun) 18:05:32
+# 2020/05/20(Wed) 18:05:32
 # all right reserved 2020 (c) uhlfx.trade
-#######################################
+#################################################
 #!/bin/bash
-#variables
+#variables--------------------------
 USER="hoge"
 PASSKEY="hage"
 NEWPORT="foo"
+#----------------------------------
 
-#code
+#code------------------------------
 dnf -y install expect
 
-#step2--------------------------------------------------------
+#step2------------------------------
 mkdir /root/.ssh
 chmod 600 /root/.ssh
 
@@ -29,7 +30,7 @@ expect \"Enter same passphrase again:\"
 send \"$PASSKEY\n\"
 interact "
 
-#Step3--------------------------------------------------------
+#Step3------------------------------
 mkdir /home/$USER/.ssh
 cp id_rsa.pub /home/$USER/.ssh/authorized_keys
 cp id_rsa /home/$USER/.ssh/id_rsa
@@ -39,9 +40,9 @@ chmod 660 /home/$USER/.ssh/id_rsa
 echo -e "
 #By SSHSCR Receive procedure
 # Point:  File > SSH SCR
-# [/home/<username>/.ssh/id_rsa]  to [proper directory local PC] 	e.g 'C:\Users\<username>\Documents'
+# [/home/<username>/.ssh/id_rsa]  to [proper directory local PC] e.g 'C:\Users\<username>\Documents'
 # or, open another new connection with .ttl auto login method for TeraTerm
-If done above, hit any key and [return] "
+# If done above, hit any key and [return] "
 
 read INPUT
 echo "$INPUT huumm... by the way. we will go to step 4."
